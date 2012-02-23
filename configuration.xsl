@@ -16,7 +16,40 @@
   <xsl:output method="html"/>
   <xsl:template match="configuration">
     <html>
-      <body>
+      <head>
+	<meta charset="utf-8"></meta>
+	<title>Bootstrap, from Twitter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+	<meta name="description" content=""></meta>
+	<meta name="author" content=""></meta>
+	
+	<!-- Le styles -->
+	<link href="bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet">
+	</link>
+	<style>
+	  body {
+	  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	  }
+	</style>
+	<link href="bootstrap/docs/assets/css/bootstrap-responsive.css" rel="stylesheet"></link>
+	
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+	
+	<!-- Le fav and touch icons -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	</link>
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	</link>
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	</link>
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	</link>
+      </head>
+      
+    <body>
         <table border="1">
           <tr>
             <td>name</td>
