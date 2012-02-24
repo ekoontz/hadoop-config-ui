@@ -40,15 +40,35 @@
 	
 	<style>
 	  th {
-	  text-align:left;
+	    text-align:right;
 	  }
 	  td.value {
-	  font-family:monospace;
+	    white-space:nowrap;
+	  }
+
+	  td.value div {
+	    font-family:monospace;
+	    width:20em;
+	    overflow:hidden;
+	  }
+
+	  td.value div:hover {
+	    z-index:3;
+	    opacity:1;
+	    background:white;
+	    text-overflow:inherit;
+	    overflow:visible;
+          }
+
+	  td.description {
+  	    z-index:0;
+	    text-align:right;
+	    line-height:1.35em;
 	  }
 
 	  div.properties {
-	  margin-left:1em;
-	  width:90%;
+	    margin-left:1em;
+	    width:90%;
 	  }
 	</style>
 	
@@ -70,10 +90,10 @@
                 </a>
               </td>
               <td class="value">
-                <xsl:value-of select="value"/>
+		<xsl:apply-templates select="value"/>
               </td>
-              <td>
-                <xsl:value-of select="description"/>
+              <td class="description">
+		<xsl:apply-templates select="description"/>
               </td>
             </tr>
           </xsl:for-each>
@@ -82,5 +102,47 @@
     </body>
     </html>
   </xsl:template>
+
+  <xsl:template match="value">
+
+      <xsl:choose>
+	<xsl:when test="substring-before(., ',') = ''">
+	  <div style="text-overflow:ellipsis">
+	    <xsl:value-of select="."/>
+	  </div>
+	</xsl:when>
+	<xsl:otherwise>
+	  The set of:
+	  <div style="text-overflow:ellipsis">
+	    <ul>
+	      <xsl:call-template name="split">
+		<xsl:with-param name="string" select="."/>
+	      </xsl:call-template>
+	    </ul>
+	  </div>
+	</xsl:otherwise>
+      </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="description">
+    <div class="description">
+      <xsl:value-of select="."/> <!-- maybe use copy-of if embedded html is allowed in description -->
+    </div>
+  </xsl:template>
+
+  <xsl:template name="split">
+    <xsl:param name="string"/>
+    <xsl:variable name="first" select="substring-before($string, ',')" /> 
+    <xsl:variable name="rest" select="substring-after($string, ',')" /> 
+    <xsl:if test="$first != ''">
+      <li>
+	<xsl:value-of select="$first"/>
+      </li>
+      <xsl:call-template name="split">
+	<xsl:with-param name="string"><xsl:value-of select="$rest"/></xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+
 
 </xsl:stylesheet>
