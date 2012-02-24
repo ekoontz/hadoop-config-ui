@@ -68,13 +68,39 @@
 
 	  div.properties {
 	    margin-left:1em;
-	    width:90%;
+	    float:left;
+	    width:100%;
 	  }
+
+	  div.colophon {
+	    padding:0.25em;
+	    margin:0.5em;
+	    background:#eee;
+	    border:1px solid darkgrey;
+	    border-radius:15px;
+	    -moz-border-radius:15px;
+  	    float:left;width:25%;
+	  }
+	  div.colophon ul {
+	    margin:0;
+	    padding:.25em;
+	    padding-left:1.75em;
+	  }
+
 	</style>
 	
       </head>
       
     <body>
+      <div class="colophon">
+	<h4>More information</h4>
+	<ul>
+	  <li>Content from <a href="http://hadoop.apache.org/common/docs/current/cluster_setup.html#Configuration+Files">Hadoop Configuration Files</a></li>
+	  <li>XSLT <a href="https://github.com/ekoontz/hadoop-config-ui">hadoop-config-ui</a></li>
+	  <li>UI Based on <a href="https://github.com/twitter/bootstrap">Bootstrap</a></li>
+	</ul>
+      </div>
+
       <div class="properties">
         <table class="table table-striped table-condensed table-bordered">
           <tr>
