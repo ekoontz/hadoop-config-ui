@@ -18,7 +18,7 @@
     <html>
       <head>
 	<meta charset="utf-8"></meta>
-	<title>Bootstrap, from Twitter</title>
+	<title>Apache Hadoop Configuration Properties</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 	<meta name="description" content=""></meta>
 	<meta name="author" content=""></meta>
@@ -38,23 +38,29 @@
 	    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	    <![endif]-->
 	
-	<!-- Le fav and touch icons -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	</link>
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	</link>
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	</link>
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-	</link>
+	<style>
+	  th {
+	  text-align:left;
+	  }
+	  td.value {
+	  font-family:monospace;
+	  }
+
+	  div.properties {
+	  margin-left:1em;
+	  width:90%;
+	  }
+	</style>
+	
       </head>
       
     <body>
-        <table border="1">
+      <div class="properties">
+        <table class="table table-striped table-condensed table-bordered">
           <tr>
-            <td>name</td>
-            <td>value</td>
-            <td>description</td>
+            <th>name</th>
+            <th>value</th>
+            <th>description</th>
           </tr>
           <xsl:for-each select="property">
             <tr>
@@ -63,7 +69,7 @@
                   <xsl:value-of select="name"/>
                 </a>
               </td>
-              <td>
+              <td class="value">
                 <xsl:value-of select="value"/>
               </td>
               <td>
@@ -72,7 +78,9 @@
             </tr>
           </xsl:for-each>
         </table>
-      </body>
+      </div>
+    </body>
     </html>
   </xsl:template>
+
 </xsl:stylesheet>
