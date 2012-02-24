@@ -24,14 +24,14 @@
 	<meta name="author" content=""></meta>
 	
 	<!-- Le styles -->
-	<link href="bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
 	</link>
 	<style>
 	  body {
 	  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 	  }
 	</style>
-	<link href="bootstrap/docs/assets/css/bootstrap-responsive.css" rel="stylesheet"></link>
+	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet"></link>
 	
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
