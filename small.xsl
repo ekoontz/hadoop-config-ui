@@ -31,12 +31,28 @@
   </xsl:template>
 
   <xsl:template match="configuration" mode="table">
+    <h1>Prefix count 'a':
+    <xsl:apply-templates select="." mode="count">
+      <xsl:with-param name="prefix" select="'a.'"/>
+    </xsl:apply-templates>
+    </h1>
+    <h1>Prefix count 'ab':
+    <xsl:apply-templates select="." mode="count">
+      <xsl:with-param name="prefix" select="'a.b.'"/>
+    </xsl:apply-templates>
+    </h1>
     <table class="table table-striped table-condensed table-bordered conf">
       <xsl:variable name="colspan" select="count(property)"/>
       <tr>
 	<th rowspan="$colspan">a(CS):<xsl:value-of select="$colspan"/></th><td>40</td>
       </tr>
     </table>
+  </xsl:template>
+
+  <xsl:template match="configuration" mode="count">
+    <xsl:param name="prefix"/>
+    <xsl:variable name="dots">2</xsl:variable>
+    <xsl:value-of select="count(property[starts-with(name,$prefix)])+$dots"/>
   </xsl:template>
 
   <xsl:template match="configuration" mode="plain">
