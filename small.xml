@@ -2,27 +2,31 @@
 <?xml-stylesheet type="text/xsl" href="small.xsl"?>
 <configuration>
   <property>
-    <name>hadoop.common.configuration.version</name>
-    <value>0.23.0</value>
-    <description>version of this configuration file</description>
+    <name>a</name>
+    <value>40</value>
   </property>
   <property>
-    <name>hadoop.common.configuration.eugene</name>
-    <value>koontz</value>
-    <description>myself</description>
+    <name>a.b</name>
+    <value>41</value>
   </property>
   <property>
-    <name>hadoop.common.configuration.foo</name>
-    <value>bar</value>
+    <name>a.b.c</name>
+    <value>42</value>
   </property>
   <property>
-    <name>hadoop.tmp.dir</name>
-    <value>/tmp/hadoop-${user.name}</value>
-    <description>A base for other temporary directories.</description>
+    <name>a.b.d</name>
+    <value>43</value>
   </property>
   <property>
-    <name>hadoop.tmp.foo</name>
-    <value>bar</value>
+    <name>a.b.d.g</name>
+    <value>46</value>
   </property>
-
+  <property>
+    <name>a.b.e</name>
+    <value>44</value>
+  </property>
+  <property>
+    <name>a.c.f</name>
+    <value>45</value>
+  </property>
 </configuration>
