@@ -11,16 +11,69 @@
     <html>
       <head>
 	<xsl:apply-templates select="." mode="head"/>
+	<style>
+	  table.conf {
+	  width:75%;
+	  }
+	  table.conf th,td {
+	  border:1px dashed green;
+	  }
+	</style>
+
       </head>
       <body>
-	<ul>
-	  <xsl:apply-templates select="property" mode="summary"/>
-	</ul>
-
-	<xsl:copy-of select="table"/>
-	<xsl:apply-templates select="property[1]" mode="nested"/>
+<!--	<xsl:apply-templates select="property" mode="summary"/> -->
+	<xsl:apply-templates select="." mode="table"/>
+	<xsl:apply-templates select="." mode="mock-table"/>
+<!--	<xsl:apply-templates select="property[1]" mode="nested"/> -->
       </body>
     </html>
+  </xsl:template>
+
+  <xsl:template match="configuration" mode="table">
+    <table class="table table-striped table-condensed table-bordered conf">
+      <tr>
+	<th rowspan="8">a(CS):<xsl:value-of select="'8'"/></th><td>40</td>
+      </tr>
+    </table>
+  </xsl:template>
+
+  <xsl:template match="configuration" mode="mock-table">
+    <table class="table table-striped table-condensed table-bordered conf">
+      <tr>
+	<th rowspan="8">a</th><td>40</td>
+      </tr>
+      <tr>
+	<th rowspan="5">b</th>
+      </tr>
+      <tr>
+	<th>c</th>
+	<td>42</td>
+      </tr>
+      <tr>
+	<th rowspan="2">d</th>
+	<td>43</td>
+      </tr>
+      <tr>
+	<th>g</th>
+	<td>41</td>
+      </tr>
+      <tr>
+	<th>e</th>
+	<td>44</td>
+      </tr>
+      <tr>
+	<th rowspan="2">c</th>
+      </tr>
+      <tr>
+	<th>f</th>
+	<td>45</td>
+      </tr>
+      <tr>
+	<th>b</th>
+	<td>46</td>
+      </tr>
+    </table>
   </xsl:template>
 
   <xsl:template match="property" mode="summary">

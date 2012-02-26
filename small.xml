@@ -5,10 +5,7 @@
     <name>a</name>
     <value>40</value>
   </property>
-  <property>
-    <name>a.b</name>
-    <value>41</value>
-  </property>
+  <!-- note: no <property> for (simply) a.b. -->
   <property>
     <name>a.b.c</name>
     <value>42</value>
@@ -19,7 +16,7 @@
   </property>
   <property>
     <name>a.b.d.g</name>
-    <value>46</value>
+    <value>41</value>
   </property>
   <property>
     <name>a.b.e</name>
@@ -31,7 +28,7 @@
   </property>
   <property>
     <name>b</name>
-    <value>47</value>
+    <value>46</value>
   </property>
 
 
