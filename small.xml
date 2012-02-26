@@ -29,4 +29,10 @@
     <name>a.c.f</name>
     <value>45</value>
   </property>
+  <property>
+    <name>b</name>
+    <value>47</value>
+  </property>
+
+
 </configuration>
