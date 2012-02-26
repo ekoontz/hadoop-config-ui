@@ -22,55 +22,71 @@
 
       </head>
       <body>
-<!--	<xsl:apply-templates select="property" mode="summary"/> -->
 	<xsl:apply-templates select="." mode="table"/>
 	<xsl:apply-templates select="." mode="mock-table"/>
-<!--	<xsl:apply-templates select="property[1]" mode="nested"/> -->
+	<xsl:apply-templates select="." mode="plain"/>
+
       </body>
     </html>
   </xsl:template>
 
   <xsl:template match="configuration" mode="table">
     <table class="table table-striped table-condensed table-bordered conf">
+      <xsl:variable name="colspan" select="count(property)"/>
       <tr>
-	<th rowspan="8">a(CS):<xsl:value-of select="'8'"/></th><td>40</td>
+	<th rowspan="$colspan">a(CS):<xsl:value-of select="$colspan"/></th><td>40</td>
       </tr>
     </table>
   </xsl:template>
 
+  <xsl:template match="configuration" mode="plain">
+    <table class="table table-striped table-condensed table-bordered conf">
+      <xsl:apply-templates mode="plain"/>
+    </table>
+  </xsl:template>
+
+  <xsl:template match="property" mode="plain">
+    <tr>
+      <th><xsl:value-of select="name"/></th>
+      <td><xsl:value-of select="value"/></td>
+    </tr>
+  </xsl:template>
+
   <xsl:template match="configuration" mode="mock-table">
+    <h2>a</h2>
     <table class="table table-striped table-condensed table-bordered conf">
       <tr>
-	<th rowspan="8">a</th><td>40</td>
+	<th rowspan="8">a</th> <!-- {a,(ab),abc,abd,abdg,abe,(ac),acf} -->
+	<td>40</td>
       </tr>
       <tr>
-	<th rowspan="5">b</th>
+	<th rowspan="5">b</th> <!-- {(ab),abc,abd,abdg,abe} -->
       </tr>
       <tr>
 	<th>c</th>
 	<td>42</td>
       </tr>
       <tr>
-	<th rowspan="2">d</th>
+	<th rowspan="2">d</th> <!-- {abd, abdg} -->
 	<td>43</td>
       </tr>
       <tr>
-	<th>g</th>
+	<th>g</th> <!-- {abdg} -->
 	<td>41</td>
       </tr>
       <tr>
-	<th>e</th>
+	<th>e</th> <!-- {abe} -->
 	<td>44</td>
       </tr>
       <tr>
-	<th rowspan="2">c</th>
+	<th rowspan="2">c</th> <!-- {(ac),acf} -->
       </tr>
       <tr>
 	<th>f</th>
 	<td>45</td>
       </tr>
       <tr>
-	<th>b</th>
+	<th>b</th> <!-- {b} -->
 	<td>46</td>
       </tr>
     </table>
