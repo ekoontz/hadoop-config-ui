@@ -39,10 +39,11 @@
       
       <style>
 	table.decomposed {
-	  width:50%;
+	margin:0.75em;
+	width:85%;
 	}
 	table.decomposed td {
-	  width:10em;
+	  padding-right:0.5em;
 	}
 	th {
   	  text-align:right;

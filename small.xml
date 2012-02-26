@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="small.xsl"?>
+<configuration>
+  <property>
+    <name>hadoop.common.configuration.version</name>
+    <value>0.23.0</value>
+    <description>version of this configuration file</description>
+  </property>
+  <property>
+    <name>hadoop.common.configuration.eugene</name>
+    <value>koontz</value>
+    <description>myself</description>
+  </property>
+  <property>
+    <name>hadoop.common.configuration.foo</name>
+    <value>bar</value>
+  </property>
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/tmp/hadoop-${user.name}</value>
+    <description>A base for other temporary directories.</description>
+  </property>
+  <property>
+    <name>hadoop.tmp.foo</name>
+    <value>bar</value>
+  </property>
+
+</configuration>
