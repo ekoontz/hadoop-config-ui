@@ -67,12 +67,17 @@
 	  }
 
 	  div.properties {
+	    z-axis:1;
 	    margin-left:1em;
 	    float:left;
 	    width:100%;
 	  }
 
 	  div.colophon {
+	    z-axis:0;
+	    right:10%;
+	    position:fixed;
+	    top:0;
 	    padding:0.25em;
 	    margin:0.5em;
 	    background:#eee;
@@ -102,7 +107,21 @@
       </div>
 
       <div class="properties">
-        <table class="table table-striped table-condensed table-bordered">
+	<header class="jumbotron subhead" id="overview">
+	  <div class="subnav">
+	    <ul class="nav nav-pills">
+	      <li><a href="#hadoop">hadoop.</a></li>
+	      <li><a href="#io">io.</a></li>
+	      <li><a href="#fs">fs.</a></li>
+	      <li><a href="#ipc">ipc.</a></li>
+	      <li><a href="#net">net.</a></li>
+	      <li><a href="#file">file.</a></li>
+	    </ul>
+	  </div>
+	</header>
+
+
+        <table class="table table-striped table-condensed table-bordered decomposed">
           <tr>
             <th>name</th>
             <th>value</th>
